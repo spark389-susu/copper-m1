@@ -2,14 +2,34 @@ import Link from "next/link";
 import { Logo } from "@/components/copper/logo";
 import { ModeToggle } from "@/components/copper/mode-toggle";
 
+const NAV_LINKS = [
+  { href: "#products", label: "Products" },
+  { href: "#plus", label: "Copper Plus" },
+  { href: "#privacy", label: "Privacy" },
+];
+
 export function SiteHeader() {
   return (
-    <header className="border-b">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+    <header
+      data-testid="site-header"
+      className="bg-background sticky top-0 z-50 border-b"
+    >
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" aria-label="Copper State Labs home">
-          <Logo className="w-44" />
+          <Logo className="w-32 sm:w-44" />
         </Link>
-        <ModeToggle />
+        <nav aria-label="Main" className="flex items-center gap-4 text-sm">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+          <ModeToggle />
+        </nav>
       </div>
     </header>
   );

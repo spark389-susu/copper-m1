@@ -1,13 +1,7 @@
 import Image from "next/image";
+import { productAlt } from "@/components/copper/product-alt";
 import { Button } from "@/components/ui/button";
 import { getProducts } from "@/lib/copper/catalog";
-
-const ALT_TEXT: Record<string, string> = {
-  "copper-home":
-    "Copper Home smart speaker, a woven copper-orange dome with a clock display",
-  "copper-notes":
-    "Copper Notes recorder, a square brushed-copper device with a glowing button",
-};
 
 export function Hero() {
   const products = getProducts();
@@ -33,7 +27,7 @@ export function Hero() {
             <Image
               key={product.id}
               src={product.cutout}
-              alt={ALT_TEXT[product.id] ?? `${product.name} product photo`}
+              alt={productAlt(product.id, product.name)}
               width={600}
               height={600}
               fetchPriority="high"
