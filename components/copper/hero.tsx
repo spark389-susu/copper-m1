@@ -30,6 +30,7 @@ export function Hero() {
               alt={productAlt(product.id, product.name)}
               width={600}
               height={600}
+              loading="eager"
               fetchPriority="high"
               className="h-auto w-full"
             />

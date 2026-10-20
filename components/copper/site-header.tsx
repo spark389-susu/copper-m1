@@ -14,16 +14,19 @@ export function SiteHeader() {
       data-testid="site-header"
       className="bg-background sticky top-0 z-50 border-b"
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:gap-4">
         <Link href="/" aria-label="Copper State Labs home">
-          <Logo className="w-32 sm:w-44" />
+          <Logo className="w-28 sm:w-44" />
         </Link>
-        <nav aria-label="Main" className="flex items-center gap-4 text-sm">
+        <nav
+          aria-label="Main"
+          className="flex items-center gap-3 text-xs sm:gap-4 sm:text-sm"
+        >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground whitespace-nowrap"
             >
               {link.label}
             </a>
